@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>TEST</title>
+</head>
+<body>
+
+    <table>
+        <tr style="display:none" name="NoDisplayName">
+            <td>11111111111111111111111111111111111111111111111111111111111111</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>22222222222222222222222222222222222222222222222222222222222222</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>33333333333333333333333333333333333333333333333333333333333333</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>44444444444444444444444444444444444444444444444444444444444444</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>55555555555555555555555555555555555555555555555555555555555555</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>66666666666666666666666666666666666666666666666666666666666666</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>77777777777777777777777777777777777777777777777777777777777777</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>88888888888888888888888888888888888888888888888888888888888888</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>99999999999999999999999999999999999999999999999999999999999999</td>
+        </tr>
+        <tr style="display:none" name="NoDisplayName">
+            <td>10101010101010101010101010101010101010101010101010101010101010</td>
+        </tr>
+    </table>
+
+    <td>
+        <input type="button" value="Display" id="btnAddID" onclick="toDisplay()" />
+        <input type="button" value="Hidden" id="btnAddID" onclick="toHidden()" />
+    </td>
+
+</body>
+
+<script type="text/javascript">
+
+var nowRows = 2;
+var addRow = 3;
+
+var totalRows = 0;
+var objNoDisplayName = document.getElementsByName("NoDisplayName");
+if (typeof(objNoDisplayName) != "undefined") {
+    totalRows = objNoDisplayName.length;
+}
+
+for (var i = 0; i < nowRows; i++) {
+    if (i < totalRows) {
+        objNoDisplayName[i].style.display = "";
+    }
+}
+
+function toDisplay() {
+    var count = 0;
+    for (var i = nowRows; i < nowRows + addRow; i++){
+        if (i < totalRows) {
+            objNoDisplayName[i].style.display = "";
+            count++;
+        }
+    }
+    nowRows = nowRows + count;
+}
+
+function toHidden() {
+    for (var i = 0; i < totalRows; i++) {
+        objNoDisplayName[i].style.display = "none";
+    }
+    nowRows = 0;
+}
+
+</script>
+</html>
